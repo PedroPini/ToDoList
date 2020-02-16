@@ -1,0 +1,60 @@
+<div class="tim-typo text-left">
+    <h1 class="text-left">
+        ToDoList App </h1>
+</div><br>
+<div class="col-sm-12 col-lg-12 col-md-12">
+    <div class="card text-center">
+        <div class="card-header card-header-warning">
+            <h4 class="card-title">CheckList</h4>
+            
+        </div><br>
+<div class="row px-3">
+    <div class="col-sm-8 col-md-8 col-lg-8 text-right">
+        <input type="text" class="form-control" #itemTitle>
+    </div>
+    
+    
+    <div class="hover-cursor col-sm-4 col-md-4 col-lg-4 mt-3 text-left" (click)="onAdd(itemTitle)">
+        <i class="fa fa-plus-circle fa-2x"></i>
+    </div>
+</div><br>
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="">
+                <th>
+                    Checked
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Delete
+                </th>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of toDoListArray">
+                    <td class="hover-cursor">
+                        <span class="hover-cursor" [class.text-success]="item.isChecked" (click)="alterCheck(item.$key,item.isChecked)">
+                            <i class="fa fa-lg" [ngClass]="item.isChecked?'fa-check-circle-o': 'fa-circle-thin'"></i>
+                        </span>
+                    </td>
+                    <td>
+                        {{item.title}}
+                    </td>
+                    <td class="hover-cursor text-center">
+                        <span class="hover-cursor text-danger pull-center" (click)="onDelete(item.$key)">
+                            <i class="fa fa-trash-o fa-lg"></i>
+                        </span>
+                    </td>
+                    
+                   
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+    </div></div>
